@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="google-site-verification" content="l2ereOseDfV0NsI8ioBF2hqsGNPH3Qk-USWL1Oyfgdk" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scorpio Daily Horoscope — Love, Career & Finance Score | CosmoScore</title>
+<meta name="description" content="Scorpio daily horoscope scores for Love, Career, Finance and Overall out of 10. Today's cosmic energy reading for Scorpio (Oct 23 – Nov 21).">
+<meta name="keywords" content="scorpio horoscope, scorpio daily horoscope, scorpio love score, scorpio career score, scorpio finance score, scorpio daily 2026, zodiac scores, scorpio today">
+<meta property="og:title" content="Scorpio Daily Horoscope Scores | CosmoScore">
+<meta property="og:description" content="Scorpio daily horoscope scores for Love, Career, Finance and Overall out of 10. Today's cosmic energy reading for Scorpio (Oct 23 – Nov 21).">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://cosmoscore.netlify.app/scorpio-daily.html">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600&family=Raleway:wght@300;400;500;600&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --gold:#C9A84C;--gold-light:#F0D484;--gold-dim:rgba(201,168,76,0.13);
+  --bg:#080814;--bg2:#0E0E22;--bg3:#141430;--bg4:#1A1A3A;
+  --text:#EDE8FF;--muted:#7870A0;--border:rgba(201,168,76,0.18);
+  --card:#111128;--radius:14px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Raleway',sans-serif;min-height:100vh;overflow-x:hidden}
+.starfield{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.sf-star{position:absolute;background:#fff;border-radius:50%;animation:twinkle linear infinite}
+@keyframes twinkle{0%,100%{opacity:0.1}50%{opacity:0.9}}
+.page{position:relative;z-index:1;max-width:820px;margin:0 auto;padding:0 16px}
+
+/* NAV */
+nav{background:rgba(8,8,20,0.97);border-bottom:1px solid var(--border);padding:14px 0;position:sticky;top:0;z-index:200;backdrop-filter:blur(12px)}
+.nav-inner{max-width:820px;margin:0 auto;padding:0 16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.nav-logo{font-family:'Cinzel Decorative',serif;font-size:1.1rem;color:var(--gold);text-decoration:none;letter-spacing:2px}
+.nav-links{display:flex;gap:6px;flex-wrap:wrap}
+.nav-links a{padding:5px 14px;border-radius:20px;border:1px solid var(--border);color:var(--muted);text-decoration:none;font-size:0.72rem;letter-spacing:1px;text-transform:uppercase;font-weight:600;transition:all 0.2s}
+.nav-links a:hover,.nav-links a.active{background:var(--gold);color:#080814;border-color:var(--gold)}
+
+/* HEADER */
+.sign-hero{text-align:center;padding:40px 0 28px;border-bottom:1px solid var(--border)}
+.hero-glyph{font-size:4rem;margin-bottom:8px;display:block;filter:drop-shadow(0 0 16px rgba(201,168,76,0.35))}
+.hero-name{font-family:'Cinzel Decorative',serif;font-size:2rem;color:var(--gold);letter-spacing:3px}
+.hero-dates{font-size:0.75rem;color:var(--muted);letter-spacing:2px;margin-top:6px}
+.hero-desc{font-size:0.9rem;color:var(--text);opacity:0.75;max-width:500px;margin:14px auto 0;line-height:1.7}
+.period-badge{display:inline-block;margin-top:12px;padding:5px 18px;border:1px solid var(--gold);border-radius:20px;font-size:0.7rem;color:var(--gold);letter-spacing:2px;text-transform:uppercase;background:var(--gold-dim)}
+
+/* PERIOD SWITCHER */
+.period-row{display:flex;justify-content:center;gap:10px;padding:20px 0;flex-wrap:wrap}
+.period-row a{padding:8px 22px;border-radius:24px;border:1px solid var(--border);color:var(--muted);text-decoration:none;font-size:0.78rem;letter-spacing:1.5px;font-family:'Raleway',sans-serif;font-weight:600;text-transform:uppercase;transition:all 0.2s}
+.period-row a:hover{border-color:var(--gold);color:var(--gold-light)}
+.period-row a.active{background:var(--gold);color:#080814;border-color:var(--gold)}
+
+/* SCORES */
+.overall-box{background:linear-gradient(135deg,var(--bg2),var(--bg4));border:1px solid var(--gold);border-radius:16px;padding:28px;text-align:center;margin:20px 0;position:relative;overflow:hidden}
+.overall-box::after{content:'✦';position:absolute;right:24px;top:50%;transform:translateY(-50%);font-size:5rem;opacity:0.04;color:var(--gold)}
+.ov-lbl{font-size:0.65rem;letter-spacing:2.5px;color:var(--muted);text-transform:uppercase;margin-bottom:10px}
+.ov-num{font-family:'Cinzel Decorative',serif;font-size:4rem;color:var(--gold-light);line-height:1}
+.ov-denom{font-size:1.3rem;color:var(--muted);font-family:'Cinzel',serif}
+.ov-verdict{margin-top:10px;font-size:0.8rem;color:var(--gold);letter-spacing:1px}
+.scores-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px}
+@media(max-width:420px){.scores-3{grid-template-columns:1fr}}
+.sc{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px 12px;text-align:center}
+.sc-icon{font-size:1.3rem;margin-bottom:6px}
+.sc-lbl{font-size:0.62rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.sc-num{font-family:'Cinzel',serif;font-size:2.2rem;line-height:1}
+.sc-bar-bg{background:rgba(255,255,255,0.05);border-radius:3px;height:3px;margin-top:10px}
+.sc-bar{height:3px;border-radius:3px}
+.cg{color:#5BC98A}.bg_{background:#5BC98A}
+.cgo{color:#C9A84C}.bgo{background:#C9A84C}
+.co{color:#E07B39}.bo{background:#E07B39}
+.cl{color:#D95454}.bl{background:#D95454}
+
+/* INSIGHTS */
+.section-title{font-family:'Cinzel',serif;font-size:0.72rem;letter-spacing:3px;color:var(--muted);text-transform:uppercase;margin:28px 0 14px;text-align:center}
+.insight{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0;padding:16px 20px;margin-bottom:12px}
+.ins-head{font-size:0.62px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;font-weight:600;font-size:0.62rem}
+.ins-txt{font-size:0.9rem;line-height:1.78;color:var(--text);opacity:0.88}
+.lucky-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.lp{background:rgba(201,168,76,0.08);border:1px solid var(--border);border-radius:20px;padding:5px 16px;font-size:0.72rem;color:var(--gold-light)}
+
+/* ALL SIGNS GRID */
+.all-signs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0 30px}
+@media(max-width:500px){.all-signs-grid{grid-template-columns:repeat(2,1fr)}}
+.as-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;text-align:center;text-decoration:none;transition:all 0.2s;display:block}
+.as-card:hover{border-color:var(--gold);background:var(--bg3)}
+.as-g{font-size:1.8rem;display:block;margin-bottom:5px}
+.as-name{font-size:0.8rem;font-weight:600;color:var(--text);margin-bottom:2px}
+.as-d{font-size:0.6rem;color:var(--muted)}
+.as-score{font-family:'Cinzel',serif;font-size:1rem;margin-top:6px}
+
+/* AD */
+.ad-slot{background:var(--bg2);border:1px dashed rgba(255,255,255,0.07);border-radius:10px;padding:20px;text-align:center;margin:20px 0;color:var(--muted);font-size:0.7rem;letter-spacing:1px}
+.ad-slot b{display:block;color:rgba(255,255,255,0.18);margin-bottom:4px;font-size:0.75rem;text-transform:uppercase}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:30px 0;text-align:center;margin-top:40px}
+.ft-links{display:flex;justify-content:center;gap:16px;margin-bottom:12px;flex-wrap:wrap}
+.ft-links a{color:var(--muted);text-decoration:none;font-size:0.68rem;letter-spacing:1px;text-transform:uppercase}
+.ft-links a:hover{color:var(--gold)}
+.ft-copy{font-size:0.62rem;color:var(--muted);opacity:0.45;letter-spacing:1px}
+</style>
+</head>
+<body>
+<div class="starfield" id="sf"></div>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">✦ CosmoScore</a>
+    <div class="nav-links">
+      <a href="index.html">All Signs</a>
+      <a href="scorpio-daily.html" class="active">Daily</a>
+    <a href="scorpio-monthly.html" class="">Monthly</a>
+    <a href="scorpio-yearly.html" class="">Yearly</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page">
+
+  <div class="sign-hero">
+    <span class="hero-glyph">♏</span>
+    <div class="hero-name">Scorpio</div>
+    <div class="hero-dates">Oct 23 – Nov 21 · Water Sign · Ruled by Pluto</div>
+    <div class="hero-desc">Intense, perceptive and magnetically powerful. Scorpio transforms everything it touches deeply.</div>
+    <span class="period-badge">Daily Reading</span>
+  </div>
+
+  
+<div class="ad-slot">
+  <b>Advertisement</b>
+  <!-- PASTE YOUR GOOGLE ADSENSE CODE HERE -->
+  Google AdSense — Paste your ad code here after approval at adsense.google.com
+</div>
+
+
+  <div class="period-row">
+    <a href="scorpio-daily.html" class="active">Daily</a>
+    <a href="scorpio-monthly.html" class="">Monthly</a>
+    <a href="scorpio-yearly.html" class="">Yearly</a>
+  </div>
+
+  <!-- Overall Score -->
+  <div class="overall-box">
+    <div class="ov-lbl">Overall Cosmic Score — Daily</div>
+    <div class="ov-num" id="ov-num">—<span class="ov-denom">/10</span></div>
+    <div class="ov-verdict" id="ov-verdict">Calculating...</div>
+  </div>
+
+  <!-- 3 Category Scores -->
+  <div class="scores-3">
+    <div class="sc" id="sc-love">
+      <div class="sc-icon">♥</div>
+      <div class="sc-lbl">Love</div>
+      <div class="sc-num">—</div>
+      <div class="sc-bar-bg"><div class="sc-bar" style="width:0%"></div></div>
+    </div>
+    <div class="sc" id="sc-career">
+      <div class="sc-icon">⚡</div>
+      <div class="sc-lbl">Career</div>
+      <div class="sc-num">—</div>
+      <div class="sc-bar-bg"><div class="sc-bar" style="width:0%"></div></div>
+    </div>
+    <div class="sc" id="sc-finance">
+      <div class="sc-icon">◈</div>
+      <div class="sc-lbl">Finance</div>
+      <div class="sc-num">—</div>
+      <div class="sc-bar-bg"><div class="sc-bar" style="width:0%"></div></div>
+    </div>
+  </div>
+
+  
+<div class="ad-slot">
+  <b>Advertisement</b>
+  <!-- PASTE YOUR GOOGLE ADSENSE CODE HERE -->
+  Google AdSense — Paste your ad code here after approval at adsense.google.com
+</div>
+
+
+  <!-- Insights -->
+  <div class="section-title">✦ Daily Insights for Scorpio</div>
+
+  <div class="insight">
+    <div class="ins-head">♥ Love Insight</div>
+    <div class="ins-txt" id="ins-love">Reading cosmic signals...</div>
+  </div>
+  <div class="insight">
+    <div class="ins-head">⚡ Career Insight</div>
+    <div class="ins-txt" id="ins-career">Reading cosmic signals...</div>
+  </div>
+  <div class="insight">
+    <div class="ins-head">◈ Finance Insight</div>
+    <div class="ins-txt" id="ins-finance">Reading cosmic signals...</div>
+  </div>
+  <div class="insight">
+    <div class="ins-head">✦ Overall Cosmic Message</div>
+    <div class="ins-txt" id="ins-overall">Reading cosmic signals...</div>
+  </div>
+
+  <div class="insight">
+    <div class="ins-head">✦ Lucky Signals for Scorpio</div>
+    <div class="lucky-row">
+      <span class="lp" id="lucky-nums">Numbers: —</span>
+      <span class="lp" id="lucky-color">Color: —</span>
+      <span class="lp" id="lucky-day">Day: —</span>
+    </div>
+  </div>
+
+  <!-- Also check -->
+  <div class="section-title">Also Check for Scorpio</div>
+  <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:28px">
+    <a href="scorpio-monthly.html" style="padding:10px 22px;border:1px solid var(--border);border-radius:24px;color:var(--muted);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">Scorpio Monthly Horoscope</a>
+    <a href="scorpio-yearly.html" style="padding:10px 22px;border:1px solid var(--border);border-radius:24px;color:var(--muted);text-decoration:none;font-size:0.8rem;transition:all 0.2s" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">Scorpio Yearly Horoscope</a>
+  </div>
+
+  <!-- All Signs -->
+  <div class="section-title">All Signs — Daily Scores</div>
+  <div class="all-signs-grid" id="allSigns">
+    <a class="as-card" href="aries-daily.html" style="">
+      <span class="as-g">♈</span>
+      <div class="as-name">Aries</div>
+      <div class="as-d">Mar 21 – Apr 19</div>
+      <div class="as-score" id="as-aries">—/10</div>
+    </a>
+    <a class="as-card" href="taurus-daily.html" style="">
+      <span class="as-g">♉</span>
+      <div class="as-name">Taurus</div>
+      <div class="as-d">Apr 20 – May 20</div>
+      <div class="as-score" id="as-taurus">—/10</div>
+    </a>
+    <a class="as-card" href="gemini-daily.html" style="">
+      <span class="as-g">♊</span>
+      <div class="as-name">Gemini</div>
+      <div class="as-d">May 21 – Jun 20</div>
+      <div class="as-score" id="as-gemini">—/10</div>
+    </a>
+    <a class="as-card" href="cancer-daily.html" style="">
+      <span class="as-g">♋</span>
+      <div class="as-name">Cancer</div>
+      <div class="as-d">Jun 21 – Jul 22</div>
+      <div class="as-score" id="as-cancer">—/10</div>
+    </a>
+    <a class="as-card" href="leo-daily.html" style="">
+      <span class="as-g">♌</span>
+      <div class="as-name">Leo</div>
+      <div class="as-d">Jul 23 – Aug 22</div>
+      <div class="as-score" id="as-leo">—/10</div>
+    </a>
+    <a class="as-card" href="virgo-daily.html" style="">
+      <span class="as-g">♍</span>
+      <div class="as-name">Virgo</div>
+      <div class="as-d">Aug 23 – Sep 22</div>
+      <div class="as-score" id="as-virgo">—/10</div>
+    </a>
+    <a class="as-card" href="libra-daily.html" style="">
+      <span class="as-g">♎</span>
+      <div class="as-name">Libra</div>
+      <div class="as-d">Sep 23 – Oct 22</div>
+      <div class="as-score" id="as-libra">—/10</div>
+    </a>
+    <a class="as-card" href="scorpio-daily.html" style="border-color:var(--gold);background:var(--bg3)">
+      <span class="as-g">♏</span>
+      <div class="as-name">Scorpio</div>
+      <div class="as-d">Oct 23 – Nov 21</div>
+      <div class="as-score" id="as-scorpio">—/10</div>
+    </a>
+    <a class="as-card" href="sagittarius-daily.html" style="">
+      <span class="as-g">♐</span>
+      <div class="as-name">Sagittarius</div>
+      <div class="as-d">Nov 22 – Dec 21</div>
+      <div class="as-score" id="as-sagittarius">—/10</div>
+    </a>
+    <a class="as-card" href="capricorn-daily.html" style="">
+      <span class="as-g">♑</span>
+      <div class="as-name">Capricorn</div>
+      <div class="as-d">Dec 22 – Jan 19</div>
+      <div class="as-score" id="as-capricorn">—/10</div>
+    </a>
+    <a class="as-card" href="aquarius-daily.html" style="">
+      <span class="as-g">♒</span>
+      <div class="as-name">Aquarius</div>
+      <div class="as-d">Jan 20 – Feb 18</div>
+      <div class="as-score" id="as-aquarius">—/10</div>
+    </a>
+    <a class="as-card" href="pisces-daily.html" style="">
+      <span class="as-g">♓</span>
+      <div class="as-name">Pisces</div>
+      <div class="as-d">Feb 19 – Mar 20</div>
+      <div class="as-score" id="as-pisces">—/10</div>
+    </a>
+  </div>
+
+  
+<div class="ad-slot">
+  <b>Advertisement</b>
+  <!-- PASTE YOUR GOOGLE ADSENSE CODE HERE -->
+  Google AdSense — Paste your ad code here after approval at adsense.google.com
+</div>
+
+
+  <!-- SEO Text -->
+  <article style="margin:20px 0 30px;padding:20px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius)">
+    <h2 style="font-family:'Cinzel',serif;font-size:1rem;color:var(--gold);margin-bottom:12px;letter-spacing:1px">Scorpio Daily Horoscope — What the Stars Say</h2>
+    <p style="font-size:0.85rem;line-height:1.8;color:var(--text);opacity:0.8;margin-bottom:10px">
+      Welcome to CosmoScore's daily horoscope for <strong style="color:var(--gold-light)">Scorpio</strong> (Oct 23 – Nov 21). 
+      As a Water sign ruled by Pluto, Scorpio brings a unique cosmic energy to every daily cycle. 
+      Our AI-powered scoring system analyses planetary positions and astrological patterns to give you clear, 
+      actionable scores across the four most important areas of life: Love, Career, Finance and Overall wellbeing.
+    </p>
+    <p style="font-size:0.85rem;line-height:1.8;color:var(--text);opacity:0.8">
+      Intense, perceptive and magnetically powerful. Scorpio transforms everything it touches deeply. Use these scores as a cosmic compass — not a fixed destiny. 
+      The stars illuminate possibilities; you choose the path. 
+      Check back daily for fresh insights, or explore the <a href="scorpio-monthly.html" style="color:var(--gold)">monthly</a> and 
+      <a href="scorpio-yearly.html" style="color:var(--gold)">yearly</a> forecasts for a longer view of your cosmic journey.
+    </p>
+  </article>
+
+  <footer>
+    <div class="ft-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Use</a>
+    </div>
+    <div class="ft-copy">© 2026 CosmoScore · For Entertainment Purposes Only · Not Professional Advice</div>
+  </footer>
+
+</div>
+
+<script>
+// ============================================================
+// CosmoScore — Shared Data & Logic
+// ============================================================
+
+const SIGNS = [
+  {n:'Aries',      slug:'aries',      g:'♈', d:'Mar 21 – Apr 19', element:'Fire',   planet:'Mars',   trait:'Bold, energetic and pioneering. Natural leaders who charge ahead with passion.'},
+  {n:'Taurus',     slug:'taurus',     g:'♉', d:'Apr 20 – May 20', element:'Earth',  planet:'Venus',  trait:'Patient, reliable and deeply sensual. Taurus values comfort, beauty and loyalty above all.'},
+  {n:'Gemini',     slug:'gemini',     g:'♊', d:'May 21 – Jun 20', element:'Air',    planet:'Mercury',trait:'Curious, adaptable and brilliantly communicative. Gemini thrives on ideas and connection.'},
+  {n:'Cancer',     slug:'cancer',     g:'♋', d:'Jun 21 – Jul 22', element:'Water',  planet:'Moon',   trait:'Deeply intuitive, nurturing and emotionally intelligent. Cancer leads with the heart.'},
+  {n:'Leo',        slug:'leo',        g:'♌', d:'Jul 23 – Aug 22', element:'Fire',   planet:'Sun',    trait:'Charismatic, generous and naturally magnetic. Leo was born to shine and inspire others.'},
+  {n:'Virgo',      slug:'virgo',      g:'♍', d:'Aug 23 – Sep 22', element:'Earth',  planet:'Mercury',trait:'Precise, analytical and quietly dedicated. Virgo finds beauty in detail and excellence.'},
+  {n:'Libra',      slug:'libra',      g:'♎', d:'Sep 23 – Oct 22', element:'Air',    planet:'Venus',  trait:'Charming, fair-minded and deeply social. Libra seeks harmony in all areas of life.'},
+  {n:'Scorpio',    slug:'scorpio',    g:'♏', d:'Oct 23 – Nov 21', element:'Water',  planet:'Pluto',  trait:'Intense, perceptive and magnetically powerful. Scorpio transforms everything it touches.'},
+  {n:'Sagittarius',slug:'sagittarius',g:'♐', d:'Nov 22 – Dec 21', element:'Fire',   planet:'Jupiter',trait:'Free-spirited, optimistic and philosophically minded. Sagittarius lives for adventure.'},
+  {n:'Capricorn',  slug:'capricorn',  g:'♑', d:'Dec 22 – Jan 19', element:'Earth',  planet:'Saturn', trait:'Ambitious, disciplined and remarkably resilient. Capricorn climbs every mountain it faces.'},
+  {n:'Aquarius',   slug:'aquarius',   g:'♒', d:'Jan 20 – Feb 18', element:'Air',    planet:'Uranus', trait:'Visionary, humanitarian and refreshingly original. Aquarius thinks generations ahead.'},
+  {n:'Pisces',     slug:'pisces',     g:'♓', d:'Feb 19 – Mar 20', element:'Water',  planet:'Neptune',trait:'Deeply empathetic, creative and spiritually aware. Pisces feels everything profoundly.'}
+];
+
+const BANK = {
+  daily:{
+    love:["Venus lights your path today — express your feelings without hesitation, the timing is perfect.","A small unexpected gesture from someone special leaves a lasting impression on your heart.","Your magnetic energy peaks today; singles may attract genuine interest in surprising places.","An honest conversation with your partner tonight heals something that has been quietly lingering.","The moon amplifies your emotional intuition — trust your gut about someone new in your life.","Old connections resurface with fresh meaning; do not dismiss what feels familiar yet renewed.","Romance blooms through shared laughter today — keep things light and let joy lead the way.","Your vulnerability is your superpower right now; opening up invites the closeness you desire.","A chance encounter today carries more romantic potential than it initially appears.","Love speaks in small moments today — pay attention to the details others might overlook."],
+    career:["Mercury sharpens your communication — that pitch or idea you have been delaying? Send it now.","A collaborative effort with a colleague leads to a breakthrough neither of you anticipated.","Your attention to detail today earns silent but significant appreciation from those who matter.","An unexpected opportunity surfaces mid-morning — act within 24 hours or it shifts to someone else.","Creative thinking is your edge today; conventional approaches will not get you to the finish line.","A mentor or senior figure notices your consistency — stay visible and confident in your work.","Focus on one task at a time; scattered energy today leads to errors that slow you down tomorrow.","Your problem-solving ability peaks today — tackle the challenge you have been avoiding all week.","A difficult conversation at work actually goes better than you expect; speak your truth calmly.","The stars favour those who ask for what they deserve today — negotiate, pitch or request boldly."],
+    finance:["Avoid impulse purchases today — that deal is not as good as it looks on the surface.","A pending payment or reimbursement is finally on its way; check your accounts by end of day.","Small consistent saving right now quietly compounds into something significant within months.","A financial conversation you have been avoiding actually goes better than you expect today.","Review your subscriptions and recurring expenses — at least one is no longer serving you.","An unexpected expense appears, but you handle it with more ease than you thought possible.","The stars favour conservative financial moves today; bold bets carry more risk than usual.","Someone close shares a money-saving tip that genuinely changes how you approach your budget.","A small investment of time into understanding your finances today pays off significantly this month.","Resist the urge to lend money right now — generosity today may create tension tomorrow."],
+    overall:["The cosmos align in your favour today — take one bold step toward what you truly want.","Mixed planetary energies call for patience; the right moment is close but not quite yet.","A quiet day holds more significance than it appears — pay attention to small signs around you.","Your energy and clarity are both high; this is a day to make decisions and take action.","The universe is rearranging things in your favour behind the scenes — trust the process fully.","Tension in one area brings growth in another; see challenges as redirection, not failure.","Today rewards those who show up fully — half effort returns half results under today's sky.","A moment of stillness reveals the answer you have been searching for all week.","Unexpected news shifts your perspective in a genuinely positive direction today.","The day begins slowly but builds momentum — afternoon and evening hold your best energy."]
+  },
+  monthly:{
+    love:["This month accelerates romantic clarity — you will know exactly where things stand by month end.","A full moon mid-month illuminates a relationship truth that has been quietly waiting to surface.","Singles face a genuinely significant encounter this month — keep your heart and schedule open.","Venus transits your sign this month, amplifying your charm and making connection feel effortless.","An existing bond deepens through shared challenge — what tests you together strengthens you together.","The month opens with emotional intensity; channel it into honest dialogue rather than distance.","By the third week romantic momentum picks up significantly — what felt stuck begins to move forward.","This month asks you to love yourself first; that relationship sets the tone for all the others.","A conversation about the future of your relationship becomes necessary and ultimately clarifying.","Mid-month brings an unexpected romantic development that changes how you see your love life entirely."],
+    career:["A major project reaches its conclusion this month — your contribution will be clearly seen and rewarded.","New professional doors open after the 15th; keep your options wide and your confidence wider.","Networking feels uncomfortable but necessary this month — one conversation changes everything for you.","A skills upgrade you invest in now begins paying dividends before the month is even over.","Your leadership instincts are strong this month — speak up in rooms where your voice is needed most.","A difficult colleague situation resolves itself once you approach it with calm and direct honesty.","The month brings a career crossroads; the choice that feels harder is almost certainly the right one.","Recognition arrives this month — perhaps without fanfare, but in the ways that matter most to you.","A project you have been quietly building finally gets the visibility and support it deserves.","An unexpected collaboration offer arrives this month that could reshape your professional trajectory."],
+    finance:["Financial clarity arrives this month after a period of uncertainty — finally, the numbers make sense.","An unexpected income source emerges mid-month; stay alert to creative opportunities around you.","This is the month to review your financial plan — what worked last year may need adjusting now.","A bold financial decision made before the 20th proves far smarter than it initially appeared.","Debt reduction becomes easier this month as your income and discipline align favourably together.","Avoid lending money to friends or family this month — generosity now creates tension later.","An investment you made months ago shows its first signs of real growth; patience is paying off.","The month favours multiple income streams — explore what you have been curious about monetising.","A financial opportunity arrives through an unexpected channel; investigate before dismissing it.","Reviewing your insurance, bills or contracts this month reveals savings you did not know existed."],
+    overall:["This month reshapes your path in ways that will only become fully clear in hindsight — trust it.","Growth this month requires leaving something behind; what you release makes room for what you need.","The month carries transformative energy — those who lean in grow faster than those who resist.","Breakthroughs come to those who combine effort with openness; force alone will not work this month.","A theme of completion runs through this month — old chapters close so new ones can begin cleanly.","Your intuition is unusually sharp this month; the quiet voice inside you is genuinely worth hearing.","Mid-month brings the most intense energy of the cycle; prepare by clearing your plate beforehand.","This month rewards consistency above all else — show up daily and the results will compound well.","A chance encounter or unexpected conversation mid-month shifts your entire perspective positively.","The month ends on a notably higher note than it began — trust the journey even through early friction."]
+  },
+  yearly:{
+    love:["This year brings a defining chapter in your love story — one you will look back on as a turning point.","Healing emotional patterns from the past finally completes this year, opening you to something real.","Commitment becomes a central theme; whether deepening what exists or choosing someone new, you choose clearly.","Your understanding of love matures significantly this year — what you want looks very different by December.","A relationship that begins this year carries unusual depth and long-term potential; do not rush it away.","The year asks you to release a love that has run its course — what follows is far more aligned with you.","Romantic abundance flows to those who have done the inner work this year; that work is yours.","By year end your love life looks dramatically different and dramatically better than it does today.","This year teaches you the difference between love that drains and love that genuinely restores you.","A romantic reconnection earlier in the year leads somewhere neither of you originally expected."],
+    career:["A professional leap of significant scale is written in your stars this year — prepare yourself and take it.","New skills developed in the first half of the year become your most valuable professional assets in the second.","Leadership recognition comes this year — you will be asked to step up in ways you feel genuinely ready for.","A career change or pivot you have been considering becomes undeniably clear and right for you this year.","Your reputation in your field grows substantially through consistent and visible contribution this year.","A collaboration that begins this year redefines what you believe is professionally possible for you.","The year tests your resilience professionally, but every obstacle ultimately clears a genuinely better path.","By the final quarter you occupy a professional position that your previous self would be very proud of.","An unexpected mentor enters your professional life this year and accelerates your growth significantly.","The skills and connections you build this year quietly become the foundation of your next five years."],
+    finance:["Wealth-building foundations set this year will compound quietly into genuine long-term financial security.","A bold financial move made in the first half of the year proves deeply transformative by year end.","This is the year to take your financial education seriously — knowledge here pays truly lifelong returns.","Multiple income streams become not just possible but natural for you over the full course of this year.","Debt that has weighed on you begins clearing this year as income and discipline finally align together.","An unexpected financial windfall arrives — smaller than you hope but larger than you realistically expect.","The year rewards financial patience and discipline above all else; short-term thinking costs you here.","By December your financial position is measurably and meaningfully better than it is today — trust the build.","A financial decision you make early this year that feels risky turns out to be your smartest move.","Investing in yourself professionally or educationally this year delivers your highest financial return."],
+    overall:["This is a year of genuine expansion — in identity, capability, relationships and possibility for you.","Saturn demands discipline but rewards it generously; the harder you work this year the more you receive.","A year of reinvention awaits — the person you become by December is who you were always meant to be.","Trust the long game this year; your efforts are compounding quietly even when results feel slow to arrive.","This year dissolves what was never truly yours and delivers what has always been genuinely meant for you.","The biggest growth of this year happens in private — in habits, mindset and quiet daily decisions you make.","A year of meaningful change unfolds; lean into it rather than clinging to what is already leaving your life.","By year end you will point to this year as the one everything truly began to shift — embrace it fully now.","This year challenges you in exactly the ways needed to become who your future requires you to be.","Extraordinary things become ordinary for you by year end — the growth compounds faster than you expect."]
+  }
+};
+
+const COLORS=['Ruby Red','Sapphire Blue','Emerald Green','Royal Gold','Amethyst Purple','Coral Pink','Midnight Blue','Rose Quartz','Silver','Obsidian','Turquoise','Pearl White'];
+const DAYS=['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+
+function getScore(signIdx, category, period){
+  const d = new Date();
+  let dateSeed = d.getFullYear() * 10000 + d.getMonth() * 100;
+  if(period === 'daily') dateSeed += d.getDate();
+  else if(period === 'monthly') dateSeed += d.getMonth();
+  const seed = (signIdx * 31 + category.length * 7 + dateSeed) % 97;
+  const bases = {overall:[6,10], love:[5,10], career:[5,10], finance:[4,10]};
+  const [min, max] = bases[category] || [5,10];
+  return min + ((seed * (signIdx + 3)) % (max - min + 1));
+}
+
+function pickInsight(arr, signIdx, period, extra){
+  const d = new Date();
+  const seed = (signIdx * 13 + extra + d.getDate() + d.getMonth()) % arr.length;
+  return arr[seed];
+}
+
+function colorClass(n){ return n>=9?'cg':n>=7?'cgo':n>=5?'co':'cl'; }
+function barClass(n){ return n>=9?'bg_':n>=7?'bgo':n>=5?'bo':'bl'; }
+function verdict(n){
+  if(n===10) return '✦ Perfect Alignment';
+  if(n>=9)   return '✦ Exceptionally Favourable';
+  if(n>=8)   return '✦ Strongly Favourable';
+  if(n>=7)   return '✦ Moderately Favourable';
+  if(n>=6)   return '◆ Mixed Energies';
+  if(n>=5)   return '◆ Proceed with Caution';
+  return '▼ Challenging Period';
+}
+
+function getLucky(signIdx, period){
+  const d = new Date();
+  const s = signIdx * 17 + period.length + d.getDate() + d.getMonth();
+  return {
+    nums: [(s*3%9)+1, (s*7%20)+10, (s*11%69)+30].join(', '),
+    color: COLORS[(s*5) % COLORS.length],
+    day: DAYS[(s*3) % DAYS.length]
+  };
+}
+
+function buildStars(){
+  const sf = document.getElementById('sf');
+  if(!sf) return;
+  for(let i=0;i<100;i++){
+    const s = document.createElement('div');
+    s.className = 'sf-star';
+    const sz = Math.random()*2+0.5;
+    s.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*100}%;width:${sz}px;height:${sz}px;animation-duration:${2+Math.random()*4}s;animation-delay:${Math.random()*5}s`;
+    sf.appendChild(s);
+  }
+}
+
+function renderScores(signIdx, period){
+  const ov = getScore(signIdx,'overall',period);
+  const lv = getScore(signIdx,'love',period);
+  const cr = getScore(signIdx,'career',period);
+  const fi = getScore(signIdx,'finance',period);
+  const lucky = getLucky(signIdx, period);
+  const bank = BANK[period];
+
+  document.getElementById('ov-num').textContent = ov;
+  document.getElementById('ov-verdict').textContent = verdict(ov);
+
+  ['love','career','finance'].forEach((cat,i)=>{
+    const score = [lv,cr,fi][i];
+    const el = document.getElementById(`sc-${cat}`);
+    if(el){
+      el.querySelector('.sc-num').className = `sc-num ${colorClass(score)}`;
+      el.querySelector('.sc-num').innerHTML = `${score}<span style="font-size:0.85rem;color:var(--muted)">/10</span>`;
+      el.querySelector('.sc-bar').className = `sc-bar ${barClass(score)}`;
+      el.querySelector('.sc-bar').style.width = `${score*10}%`;
+    }
+  });
+
+  const insightMap = {love:{bank:bank.love,extra:1}, career:{bank:bank.career,extra:2}, finance:{bank:bank.finance,extra:3}, overall:{bank:bank.overall,extra:4}};
+  Object.entries(insightMap).forEach(([k,v])=>{
+    const el = document.getElementById(`ins-${k}`);
+    if(el) el.textContent = pickInsight(v.bank, signIdx, period, v.extra);
+  });
+
+  const ln = document.getElementById('lucky-nums');
+  const lc = document.getElementById('lucky-color');
+  const ld = document.getElementById('lucky-day');
+  if(ln) ln.textContent = `Numbers: ${lucky.nums}`;
+  if(lc) lc.textContent = `Color: ${lucky.color}`;
+  if(ld) ld.textContent = `Day: ${lucky.day}`;
+}
+</script>
+<script>
+  buildStars();
+  const signIdx = 7;
+  const period = 'daily';
+  loadAIScores(signIdx, period);
+
+  // Update all-signs scores
+  const allSigns = document.querySelectorAll('[id^="as-"]');
+  allSigns.forEach(el => {
+    const s = el.id.replace('as-','');
+    const idx = ["aries", "taurus", "gemini", "cancer", "leo", "virgo", "libra", "scorpio", "sagittarius", "capricorn", "aquarius", "pisces"].indexOf(s);
+    if(idx >= 0) {
+      const sc = getScore(idx, 'overall', period);
+      el.textContent = sc + '/10';
+      el.className = 'as-score ' + colorClass(sc);
+    }
+  });
+</script>
+<script>
+async function loadAIScores(signIdx, period) {
+  const sign = SIGNS[signIdx];
+  const cacheKey = 'cosmo_' + sign.slug + '_' + period + '_' + new Date().toDateString();
+  
+  // Use cached result if available (avoids calling API twice on same day)
+  const cached = sessionStorage.getItem(cacheKey);
+  if (cached) { renderAIResult(JSON.parse(cached)); return; }
+
+  // Show loading
+  document.getElementById('ov-num').innerHTML = '<span style="font-size:1.5rem;animation:pulse 1s infinite;display:inline-block">✦</span>';
+  document.getElementById('ov-verdict').textContent = 'Reading cosmic signals...';
+
+  try {
+    const resp = await fetch('/.netlify/functions/horoscope', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        signName: sign.n,
+        signDates: sign.d,
+        element: sign.element,
+        planet: sign.planet,
+        period: period
+      })
+    });
+    if (!resp.ok) throw new Error('Function error');
+    const data = await resp.json();
+    sessionStorage.setItem(cacheKey, JSON.stringify(data));
+    renderAIResult(data);
+  } catch(e) {
+    console.error(e);
+    renderScores(signIdx, period); // fallback to math
+  }
+}
+
+function renderAIResult(sc) {
+  document.getElementById('ov-num').innerHTML = sc.overall + '<span class="ov-denom">/10</span>';
+  document.getElementById('ov-verdict').textContent = verdict(sc.overall);
+  ['love','career','finance'].forEach(cat => {
+    const score = sc[cat];
+    const el = document.getElementById('sc-' + cat);
+    if (el) {
+      el.querySelector('.sc-num').className = 'sc-num ' + colorClass(score);
+      el.querySelector('.sc-num').innerHTML = score + '<span style="font-size:0.85rem;color:var(--muted)">/10</span>';
+      el.querySelector('.sc-bar').className = 'sc-bar ' + barClass(score);
+      el.querySelector('.sc-bar').style.width = (score * 10) + '%';
+    }
+  });
+  ['love','career','finance','overall'].forEach(k => {
+    const el = document.getElementById('ins-' + k);
+    if (el) el.textContent = sc[k + '_insight'];
+  });
+  const ln = document.getElementById('lucky-nums');
+  const lc = document.getElementById('lucky-color');
+  const ld = document.getElementById('lucky-day');
+  if (ln) ln.textContent = 'Numbers: ' + sc.lucky_numbers;
+  if (lc) lc.textContent = 'Color: ' + sc.lucky_color;
+  if (ld) ld.textContent = 'Day: ' + sc.lucky_day;
+}
+</script>
+</body>
+</html>

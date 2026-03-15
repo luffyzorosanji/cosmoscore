@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://cosmoscore.netlify.app/sitemap.xml
