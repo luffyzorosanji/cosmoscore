@@ -53,7 +53,7 @@ nav{background:rgba(8,8,20,0.97);border-bottom:1px solid var(--border);padding:1
 .overall-box{background:linear-gradient(135deg,var(--bg2),var(--bg4));border:1px solid var(--gold);border-radius:16px;padding:28px;text-align:center;margin:20px 0;position:relative;overflow:hidden}
 .overall-box::after{content:'✦';position:absolute;right:24px;top:50%;transform:translateY(-50%);font-size:5rem;opacity:0.04;color:var(--gold)}
 .ov-lbl{font-size:0.65rem;letter-spacing:2.5px;color:var(--muted);text-transform:uppercase;margin-bottom:10px}
-.ov-num{font-family:'Cinzel Decorative',serif;font-size:4rem;color:var(--gold-light);line-height:1}
+.ov-num{font-family:'Raleway',sans-serif;font-size:4rem;font-weight:700;color:var(--gold-light);line-height:1}
 .ov-denom{font-size:1.3rem;color:var(--muted);font-family:'Cinzel',serif}
 .ov-verdict{margin-top:10px;font-size:0.8rem;color:var(--gold);letter-spacing:1px}
 .scores-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px}
@@ -421,10 +421,10 @@ function buildStars(){
 }
 
 function renderScores(signIdx, period){
-  const ov = getScore(signIdx,'overall',period);
   const lv = getScore(signIdx,'love',period);
   const cr = getScore(signIdx,'career',period);
   const fi = getScore(signIdx,'finance',period);
+  const ov = Math.round((lv + cr + fi) / 3);
   const lucky = getLucky(signIdx, period);
   const bank = BANK[period];
 
@@ -458,6 +458,59 @@ function renderScores(signIdx, period){
 </script>
 <script>
   buildStars();
+
+async function loadAIScores(signIdx, period) {
+  const sign = SIGNS[signIdx];
+  const cacheKey = 'cosmo_' + sign.slug + '_' + period + '_' + new Date().toDateString();
+  const cached = sessionStorage.getItem(cacheKey);
+  if (cached) { renderAIResult(JSON.parse(cached)); return; }
+
+  document.getElementById('ov-num').innerHTML = '<span style="font-size:1.5rem;color:var(--muted)">✦</span>';
+  document.getElementById('ov-verdict').textContent = 'Reading cosmic signals...';
+
+  try {
+    const resp = await fetch('/.netlify/functions/horoscope', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        signName: sign.n, signDates: sign.d,
+        element: sign.element, planet: sign.planet, period: period
+      })
+    });
+    if (!resp.ok) throw new Error('Function error ' + resp.status);
+    const sc = await resp.json();
+    sessionStorage.setItem(cacheKey, JSON.stringify(sc));
+    renderAIResult(sc);
+  } catch(e) {
+    console.error(e);
+    loadAIScores(signIdx, period);
+  }
+}
+
+function renderAIResult(sc) {
+  const lv = sc.love; const cr = sc.career; const fi = sc.finance;
+  const ov = sc.overall || Math.round((lv+cr+fi)/3);
+  document.getElementById('ov-num').innerHTML = ov + '<span class="ov-denom">/10</span>';
+  document.getElementById('ov-verdict').textContent = verdict(ov);
+  ['love','career','finance'].forEach(cat => {
+    const score = sc[cat];
+    const el = document.getElementById('sc-' + cat);
+    if (el) {
+      el.querySelector('.sc-num').className = 'sc-num ' + colorClass(score);
+      el.querySelector('.sc-num').innerHTML = score + '<span style="font-size:0.85rem;color:var(--muted)">/10</span>';
+      el.querySelector('.sc-bar').className = 'sc-bar ' + barClass(score);
+      el.querySelector('.sc-bar').style.width = (score*10) + '%';
+    }
+  });
+  ['love','career','finance','overall'].forEach(k => {
+    const el = document.getElementById('ins-' + k);
+    if (el) el.textContent = sc[k+'_insight'] || '';
+  });
+  if(document.getElementById('lucky-nums')) document.getElementById('lucky-nums').textContent = 'Numbers: ' + sc.lucky_numbers;
+  if(document.getElementById('lucky-color')) document.getElementById('lucky-color').textContent = 'Color: ' + sc.lucky_color;
+  if(document.getElementById('lucky-day')) document.getElementById('lucky-day').textContent = 'Day: ' + sc.lucky_day;
+}
+
   const signIdx = 6;
   const period = 'daily';
   loadAIScores(signIdx, period);
@@ -474,65 +527,6 @@ function renderScores(signIdx, period){
     }
   });
 </script>
-<script>
-async function loadAIScores(signIdx, period) {
-  const sign = SIGNS[signIdx];
-  const cacheKey = 'cosmo_' + sign.slug + '_' + period + '_' + new Date().toDateString();
-  
-  // Use cached result if available (avoids calling API twice on same day)
-  const cached = sessionStorage.getItem(cacheKey);
-  if (cached) { renderAIResult(JSON.parse(cached)); return; }
 
-  // Show loading
-  document.getElementById('ov-num').innerHTML = '<span style="font-size:1.5rem;animation:pulse 1s infinite;display:inline-block">✦</span>';
-  document.getElementById('ov-verdict').textContent = 'Reading cosmic signals...';
-
-  try {
-    const resp = await fetch('/.netlify/functions/horoscope', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        signName: sign.n,
-        signDates: sign.d,
-        element: sign.element,
-        planet: sign.planet,
-        period: period
-      })
-    });
-    if (!resp.ok) throw new Error('Function error');
-    const data = await resp.json();
-    sessionStorage.setItem(cacheKey, JSON.stringify(data));
-    renderAIResult(data);
-  } catch(e) {
-    console.error(e);
-    renderScores(signIdx, period); // fallback to math
-  }
-}
-
-function renderAIResult(sc) {
-  document.getElementById('ov-num').innerHTML = sc.overall + '<span class="ov-denom">/10</span>';
-  document.getElementById('ov-verdict').textContent = verdict(sc.overall);
-  ['love','career','finance'].forEach(cat => {
-    const score = sc[cat];
-    const el = document.getElementById('sc-' + cat);
-    if (el) {
-      el.querySelector('.sc-num').className = 'sc-num ' + colorClass(score);
-      el.querySelector('.sc-num').innerHTML = score + '<span style="font-size:0.85rem;color:var(--muted)">/10</span>';
-      el.querySelector('.sc-bar').className = 'sc-bar ' + barClass(score);
-      el.querySelector('.sc-bar').style.width = (score * 10) + '%';
-    }
-  });
-  ['love','career','finance','overall'].forEach(k => {
-    const el = document.getElementById('ins-' + k);
-    if (el) el.textContent = sc[k + '_insight'];
-  });
-  const ln = document.getElementById('lucky-nums');
-  const lc = document.getElementById('lucky-color');
-  const ld = document.getElementById('lucky-day');
-  if (ln) ln.textContent = 'Numbers: ' + sc.lucky_numbers;
-  if (lc) lc.textContent = 'Color: ' + sc.lucky_color;
-  if (ld) ld.textContent = 'Day: ' + sc.lucky_day;
-}
-</script>
 </body>
 </html>
